@@ -1,0 +1,182 @@
+// 패키지 이름은 도메인 거꾸로 (파일 , 패키지 이름이 같으면 충돌이 일어남)
+package kr.ac.kopo.day01;
+ 
+// 기본 출력문
+public class HelloMain {
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Hello 자바!!!");
+		
+		// 자바에서 +를 넣으면 문자열로 합쳐진다.
+		System.out.println("ABC" + 12.44);
+		System.out.println(true + "HELLO??");
+		System.out.println(2022 + "년 내 학점은 " + 'A' + "다.");
+		System.out.printf("%d 년 내 학점은 %c이다.\n" , 2022 , 'A');
+		
+		// 숫자 자리 맞춰주기 : 앞으로 맞출때 -를 붙힌다
+		System.out.printf("[%6d] 년 내 학점은 %c이다.\n" , 2022 , 'A');
+		
+		System.out.println(10 + "+" + 20 + "=" + (10+20));
+		// printf 사용법
+		System.out.printf("%d + %d = %d\n" , 10 , 20 , 10+20);
+		
+		System.out.printf("참 or 거짓 : %d\n" , 3 == 3);
+		
+		
+		
+		
+	}
+}
+
+/*class Hello {
+	// 변수선언 위치 (클래스 안에서만)  { 블럭 안에서만 ! }
+}
+*/
+
+
+// 한줄주석
+
+/*
+	여러줄 주석
+ 				*/
+
+// 카멜케이스 camelCase
+// ()가 붙으면 메소드
+
+/*
+System.out.println()
+"hello"  : 문자열
+'a' : 문자
+123 : 정수
+12.42 : 실수
+true, false : 논리
+*/
+
+/*
+print("변환문자")
+    %c : 문자
+    %s : 문자열
+    %d : 정수
+    %f : 실수
+    %b  : 논리식
+    */
+
+/*
+자바 자료형
+    논리형 : boolean
+    문자형 : char
+    정수형 : byte(1byte) , short(2byte) , int(4byte) , long(8byte)
+    실수형 : float(4byte) , double(8byte)
+*/
+
+// 양수만 표현할때 unsigned 양수 , 음수 같이 표현할때 signed
+
+// 정수형 기본값 int  실수형 기본값 double 
+
+// 아스키코드(ANSI)에서 한글은 문자열형 유니코드(UTF-8)에서 한글 문자형
+
+
+-----------------------------------------------------------------------
+
+
+package kr.ac.kopo.day01;
+
+import java.util.Scanner;
+
+/*
+  변수 선언 규칙
+  
+  자료형(int 등) 변수명;
+*/
+
+public class VarMain {
+	public static void main(String[] args) {
+		
+		// 정수 123을 저장하기 위한 변수 a생성
+		int a;  // 선언
+		a = 123; // 대입
+		// int a = 123; // 초기화(선언 + 대입)
+		System.out.println(a);
+		
+		// 문자열을 저장하기 위한 자료형 String  ex) String s = "ABC"
+		// String s = new string("hello") hello는 따로 저장되고 S는 hello가 저장된 위치를 저장한다 <-- 참조자료형
+		
+		// 아스키코드 , 유니코드로 인해 숫자로 나옴
+		System.out.println('A' + 'B');
+		
+		// 형변환 (A + B) A와 B의 자료형이 다를경우 ex) int a = 100; float b; b = a;
+		// 묵시적 형변환 --> 작은 범위를 큰 범위에 넣어줌
+		// 명시적 형변환 (강제적 형변환) --> 큰 범위를 작은 범위에 넣어줌
+		/* float b = 12;
+		int a;					<-- 명시적(강제적) 형변환
+		a = (int)b;
+		예) b 가 12.34 일 경우 int로 강제변환 하면 소수점이 사라져 a에는 12만 들어감.
+		printf("%d" , (int)(3+1.4));
+		 */
+		
+		/* float b;
+		 * int a = 100;
+		 * a = b; 가 성립됨 (float)생략 가능 이것이 묵시적 형변환
+		 */
+		// 쓰이는 경우 --> 정수/정수 = 더블이 나와야 하는 경우 int + int = int , int / int = double --> (double)int / int 
+		
+		int num = 10;
+		//num = num + 1;
+		//num += 1; //복합대입 연산자
+		// = : 할당연산자(대입연산자)
+		//++num; //단항연산자  정수형일때만 의미있다
+		//num++; //
+		
+		System.out.println("num : " + ++num); // 증가 시키고 num을 출력 (전위증가연산자)
+		
+		num = 10;
+		
+		System.out.println("num : " + num++); // num을 먼저 출력하고 증가 , ;이 끝나고 증가(후위증가연산자)
+		
+		
+		// && : AND  || : or
+		// 컴퓨터는 일단 앞에 2개씩 먼저 계산.
+		// 논리식에서 제일 앞에꺼가 TRUE or False 일 경우 뒤에껄 볼 필요가 없어 다 날려버린다.
+		int i = 1 , b = -1 , c = 0;
+		
+		System.out.println(++i > 0 || ++b > 0 && ++c > 0); // i가 or 트루이기 때문에 True이며 뒤를 날림
+		
+		System.out.printf("i : %d , b : %d , c : %d\n" , i , b , c); // 따라서 i=2 b=-1 c=0 출력
+		
+	
+		int j = 12;
+		int k = 0;
+		
+		System.out.printf("%d는 %d의 약수여부 판단 : %b\n" , j , k , k != 0 && j%k == 0);
+		// k가 0이 아닌경우에 실행하겠다 !=
+		
+		
+		// 3항 연산자   조건식 ? 선택1 : 선택2   선택1 : 조건식의 결과가 true 일때 시행 , 선택2 : 조건식의 결과가 false일 때 실행
+		
+		Scanner sc = new Scanner(System.in); // 키보드 입력 받는 명령어 Scanner 자바 자체 패키지라 import로 끌고와야함
+		
+		System.out.println("문자열을 입력 : ");
+//		String str = sc.next(); // 문자열을 입력받음 (단어 단위로 입력받음)
+		String str = sc.nextLine(); // 문장단위로 문자열을 입력받음.
+		System.out.println("str : [" + str + "]");
+		
+		
+		System.out.println("정수를 입력 : ");
+		int numb = sc.nextInt();   // 정수를 입력받음
+		System.out.printf("%d + 10 = %d\n" , numb , numb+10);
+		
+		System.out.println("실수를 입력 : ");
+		double numbe = sc.nextDouble();  // 실수를 입력받음
+		System.out.printf("numbe = %f\n" , numbe);
+		
+		
+		System.out.println("문자를 입력 : ");
+		char ch = sc.nextLine().charAt(0); // 문자를 입력받는 방법
+		System.out.println("ch : " + ch);
+		
+		
+		
+	}
+
+}
